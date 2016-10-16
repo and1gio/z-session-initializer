@@ -1,0 +1,23 @@
+{
+    "name": "z-session-initializer",
+    "description": "Z Session Initializer",
+    "version": "0.0.2",
+    "author": {
+        "name": "Giorgi Maisuradze"
+    },
+    "maintainers": [
+        {
+            "name": "and1gio",
+            "email": "g.maisuradze88@gmail.com"
+        },
+        {
+            "name": "levansuper",
+            "email": "l.basharuli@gmail.com"
+        }
+    ],
+    "dependencies": {
+        "express-session": "1.14.0",
+        "z-session-server-client": "0.0.1"
+    },
+    "main": "z-session-initializer.js"
+}
