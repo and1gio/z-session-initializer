@@ -13,23 +13,23 @@ module.exports = {
             })
         };
 
-        if(app.config.zSessionServerClient.secret){
+        if(app.config.zSessionServerClient.secret !== undefined){
             sessionConfig.secret = app.config.zSessionServerClient.secret;
         }
 
-        if(app.config.zSessionServerClient.resave){
-            sessionConfig.resave = app.config.zSessionServerClient.resave; // || false;
+        if(app.config.zSessionServerClient.resave !== undefined){
+            sessionConfig.resave = app.config.zSessionServerClient.resave;
         }
 
-        if(app.config.zSessionServerClient.saveUninitialized){
-            sessionConfig.saveUninitialized = app.config.zSessionServerClient.saveUninitialized; // || true;
+        if(app.config.zSessionServerClient.saveUninitialized !== undefined){
+            sessionConfig.saveUninitialized = app.config.zSessionServerClient.saveUninitialized;
         }
 
-        if(app.config.zSessionServerClient.cookie){
-            sessionConfig.cookie = app.config.zSessionServerClient.cookie; // || {secure: false};
+        if(app.config.zSessionServerClient.cookie !== undefined){
+            sessionConfig.cookie = app.config.zSessionServerClient.cookie;
         }
 
-        if(app.config.zSessionServerClient.domain){
+        if(app.config.zSessionServerClient.domain !== undefined){
             sessionConfig.domain = app.config.zSessionServerClient.domain;
         }
 
