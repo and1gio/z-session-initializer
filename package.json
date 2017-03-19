@@ -1,7 +1,7 @@
 {
     "name": "z-session-initializer",
     "description": "Z Session Initializer",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "author": {
         "name": "Giorgi Maisuradze"
     },
@@ -16,8 +16,8 @@
         }
     ],
     "dependencies": {
-        "express-session": "1.14.0",
-        "z-session-server-client": "0.0.2"
+        "express-session": "1.15.1",
+        "z-session-server-client": "0.0.6"
     },
     "main": "z-session-initializer.js"
 }

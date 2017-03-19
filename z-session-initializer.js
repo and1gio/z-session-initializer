@@ -5,17 +5,35 @@ module.exports = {
         var session = require('express-session');
         var ZSessionServerClient = require('z-session-server-client')(session);
 
-        app.express.use(session({
+        var sessionConfig = {
             store: new ZSessionServerClient({
                 host: app.config.zSessionServerClient.host,
                 port: app.config.zSessionServerClient.port,
                 path: app.config.zSessionServerClient.path
-            }),
-            secret: app.config.zSessionServerClient.secret,
-            resave: app.config.zSessionServerClient.resave || false,
-            saveUninitialized: app.config.zSessionServerClient.saveUninitialized || true,
-            cookie: app.config.zSessionServerClient.cookie || {secure: false}
-        }));
+            })
+        };
+
+        if(app.config.zSessionServerClient.secret){
+            sessionConfig.secret = app.config.zSessionServerClient.secret;
+        }
+
+        if(app.config.zSessionServerClient.resave){
+            sessionConfig.resave = app.config.zSessionServerClient.resave; // || false;
+        }
+
+        if(app.config.zSessionServerClient.saveUninitialized){
+            sessionConfig.saveUninitialized = app.config.zSessionServerClient.saveUninitialized; // || true;
+        }
+
+        if(app.config.zSessionServerClient.cookie){
+            sessionConfig.cookie = app.config.zSessionServerClient.cookie; // || {secure: false};
+        }
+
+        if(app.config.zSessionServerClient.domain){
+            sessionConfig.domain = app.config.zSessionServerClient.domain;
+        }
+
+        app.express.use(session(sessionConfig));
 
         next();
     }
