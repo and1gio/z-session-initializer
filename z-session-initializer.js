@@ -5,13 +5,17 @@ module.exports = {
         var session = require('express-session');
         var ZSessionServerClient = require('z-session-server-client')(session);
 
+        app.zSessionServerClient = new ZSessionServerClient({
+            host: app.config.zSessionServerClient.host,
+            port: app.config.zSessionServerClient.port,
+            path: app.config.zSessionServerClient.path
+        });
+        
         var sessionConfig = {
-            store: new ZSessionServerClient({
-                host: app.config.zSessionServerClient.host,
-                port: app.config.zSessionServerClient.port,
-                path: app.config.zSessionServerClient.path
-            })
+            store: app.zSessionServerClient
         };
+
+        app.zSessionManager = ZSessionServerClient.zSessionManager;
 
         if(app.config.zSessionServerClient.secret !== undefined){
             sessionConfig.secret = app.config.zSessionServerClient.secret;
