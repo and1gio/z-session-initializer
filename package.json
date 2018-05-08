@@ -1,23 +1,24 @@
 {
     "name": "z-session-initializer",
     "description": "Z Session Initializer",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "author": {
         "name": "Giorgi Maisuradze"
+    },
+    "homepage": "https://github.com/and1gio/z-session-initializer",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/and1gio/z-session-initializer.git"
     },
     "maintainers": [
         {
             "name": "and1gio",
             "email": "g.maisuradze88@gmail.com"
-        },
-        {
-            "name": "levansuper",
-            "email": "l.basharuli@gmail.com"
         }
     ],
     "dependencies": {
         "express-session": "1.15.6",
-        "z-session-server-client": "0.0.7"
+        "connect-mongo": "2.0.1"
     },
     "main": "z-session-initializer.js"
 }
