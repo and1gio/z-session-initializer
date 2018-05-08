@@ -23,10 +23,10 @@ exports.default = function (app) {
 exports.default = function (app) {
     return {
         zInitializer: [
-            ...,
-            ...,
+            ...
+            ...
             { type: 'module', name: 'z-session-initializer', enabled: true },
-            ...,
+            ...
             ...
         ]
     }

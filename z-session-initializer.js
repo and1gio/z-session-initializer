@@ -6,8 +6,8 @@ module.exports = {
         const MongoStore = require('connect-mongo')(session);
 
         app.express.use(session({
-            resave: zSession.resave,
-            saveUninitialized: zSession.saveUninitialized,
+            resave: app.config.zSession.resave,
+            saveUninitialized: app.config.zSession.saveUninitialized,
             secret: app.config.zSession.secret,
             store: new MongoStore(app.config.zSession.store)
         }));
