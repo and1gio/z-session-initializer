@@ -1,6 +1,6 @@
 # z-session-initializer
 
-### config/z-session.js
+### app/config/z-session.js
 ```js
 exports.default = function (app) {
     return {
@@ -14,6 +14,21 @@ exports.default = function (app) {
                 stringify: false
             }
         }
+    }
+};
+```
+
+### app/config/z-initializer.js
+```js
+exports.default = function (app) {
+    return {
+        zInitializer: [
+            ...,
+            ...,
+            { type: 'module', name: 'z-session-initializer', enabled: true },
+            ...,
+            ...
+        ]
     }
 };
 ```
