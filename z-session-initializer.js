@@ -53,16 +53,10 @@ module.exports = {
              * zSession
              */
             app.zSession = {
-                create: (userData, expiresAt, cb) => {
+                create: (userData, payload, expiresAt, cb) => {
                     const expires = expiresAt || (new Date(Date.now() + (app.config.zSession.store.ttl || 3600000)));
-                    const payload = {
-                        username: userData.username,
-                        createdAt: new Date().getTime()
-                    };
-                    
                     const token = jwt.sign(payload, app.config.zSession.secret);
-
-                    let session = new Session({
+                    const session = new Session({
                         data: userData,
                         token: token,
                         createdAt: Date.now(),
